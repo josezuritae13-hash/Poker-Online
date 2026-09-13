@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07090b"><title>Poker Online · Texas Hold'em</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="entry-page">
+<main class="entry-shell page-shell">
+<section class="entry-intro reveal"><div class="brand-logo hero-mark">♠</div><span class="kicker">POKER ONLINE · SALAS TEMPORALES</span><h1>Una mesa privada.<br><span>Solo tus amigos.</span></h1><p>Texas Hold'em en tiempo real con fichas ficticias. Sin cuentas, sin saldo y sin progreso permanente.</p><div class="feature-grid"><span>2–6 jugadores</span><span>Tiempo real</span><span>Host configurable</span><span>Sin dinero real</span></div></section>
+<section class="entry-card glass reveal delay-1">
+  <div id="entrySection"><span class="kicker">NUEVA PARTIDA</span><h2>Crea tu sala</h2><p class="muted">Escribe tu nombre y recibe un código para invitar.</p><label class="field-label" for="playerName">Tu nombre</label><input id="playerName" maxlength="20" autocomplete="off" placeholder="Ej. José" autofocus><button id="createBtn" class="button button-primary full">Crear sala</button><div id="createError" class="form-error hidden"></div><div class="entry-divider"><span>o</span></div><button id="joinBtn" class="button button-soft full">Unirme con código</button></div>
+  <div id="joinSection" class="hidden"><button id="backBtn" class="back-link">← Volver</button><span class="kicker">UNIRSE</span><h2>Entra a una sala</h2><p class="muted">Usa el código que te compartió el host.</p><label class="field-label" for="roomCode">Código de sala</label><input id="roomCode" class="room-code-input" maxlength="5" autocomplete="off" placeholder="ABCDE"><label class="field-label" for="joinPlayerName">Tu nombre</label><input id="joinPlayerName" maxlength="20" autocomplete="off" placeholder="Ej. Juan"><button id="confirmJoinBtn" class="button button-primary full">Entrar a la sala</button><div id="joinError" class="form-error hidden"></div></div>
+</section>
+</main><div class="legal-note">Solo fichas virtuales · No hay dinero real · Las salas son temporales</div>
+<script type="module" src="js/index.js"></script>
+</body>
+</html>

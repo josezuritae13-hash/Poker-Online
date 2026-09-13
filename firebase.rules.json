@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "rooms": {
+      "$roomCode": {
+        ".read": true,
+        ".write": true,
+        ".validate": "newData.hasChildren(['code','hostId','status','players','config','expiresAt'])",
+        "config": {
+          ".validate": "newData.hasChildren(['maxPlayers','smallBlind','bigBlind','chips']) && newData.child('maxPlayers').isNumber() && newData.child('maxPlayers').val() >= 2 && newData.child('maxPlayers').val() <= 6"
+        },
+        "game": {
+          ".validate": "newData.hasChildren(['phase','players','community','privateHands','config'])"
+        }
+      }
+    }
+  }
+}

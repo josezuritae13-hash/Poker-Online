@@ -1,0 +1,29 @@
+PÓKER ONLINE — REALTIME DATABASE RULES
+
+Estas reglas son compatibles con la arquitectura actual sin cuentas/Firebase Authentication.
+Permiten que jugadores anónimos creen y usen salas privadas temporales.
+
+IMPORTANTE: sin autenticación no existe una forma fiable de demostrar desde las reglas que una petición viene del host real. Por eso estas reglas protegen la estructura básica y mantienen la configuración limitada por el cliente, pero no son anti-trampas de nivel servidor.
+
+Para pruebas y partidas privadas entre amigos, copia esto en:
+Firebase Console → Realtime Database → Rules
+
+{
+  "rules": {
+    "rooms": {
+      "$roomCode": {
+        ".read": true,
+        ".write": true,
+        ".validate": "newData.hasChildren(['code','hostId','status','players','config','expiresAt'])",
+        "config": {
+          ".validate": "newData.hasChildren(['maxPlayers','smallBlind','bigBlind','chips']) && newData.child('maxPlayers').isNumber() && newData.child('maxPlayers').val() >= 2 && newData.child('maxPlayers').val() <= 6"
+        },
+        "game": {
+          ".validate": "newData.hasChildren(['phase','players','community','privateHands','config'])"
+        }
+      }
+    }
+  }
+}
+
+Las fichas son temporales. El cliente elimina la sala al terminar y las sesiones solamente viven en sessionStorage.

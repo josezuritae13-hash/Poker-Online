@@ -1,0 +1,9 @@
+1. Firebase Console → Realtime Database → Rules → copia FIREBASE_RULES.txt → Publish.
+2. Revisa js/firebase/config.js.
+3. Abre el proyecto mediante Live Server o Netlify.
+4. Crea una sala.
+5. Configura fichas y blinds como host.
+6. Espera al menos 2 jugadores.
+7. Empieza la partida.
+
+Las fichas son temporales y no existe dinero real.

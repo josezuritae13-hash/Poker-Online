@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07130d"><title>Poker Online · Mesa</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="game-page">
+<main class="page-shell game-shell">
+<header class="topbar glass game-topbar">
+  <div class="brand-inline"><div class="brand-logo">♠</div><div><div class="kicker">TEXAS HOLD'EM</div><h1>Poker Online</h1><div class="header-meta"><span id="roomLabel" class="pill">SALA -----</span><span class="live-pill"><b></b> EN LÍNEA</span></div></div></div>
+  <div class="header-right"><div class="pot-box"><span>BOTE</span><strong id="pot">0</strong></div><button id="backBtn" class="button button-ghost danger">Salir</button></div>
+</header>
+
+<section class="table-wrap" aria-label="Mesa de póker">
+  <div class="table-rim"><div class="felt"></div></div>
+  <div id="playersTable" class="players-table" aria-live="polite"></div>
+  <div class="table-center">
+    <div id="phase" class="phase-pill">Pre-flop</div>
+    <div id="communityCards" class="cards-row community" aria-label="Cartas comunitarias"></div>
+    <div id="message" class="game-message">Cargando partida…</div>
+  </div>
+</section>
+
+<section class="control-panel glass">
+  <div class="me-header"><div><span class="kicker">TU MANO</span><strong id="myName">Jugador</strong><div class="chip-balance">Fichas <b id="chips">0</b></div></div><div id="turnLabel" class="turn-badge">Esperando…</div></div>
+  <div id="myCards" class="cards-row my-cards" aria-label="Tus cartas"></div>
+  <div class="action-bar">
+    <button id="foldBtn" class="action-button fold">Fold</button>
+    <button id="checkBtn" class="action-button">Check</button>
+    <button id="callBtn" class="action-button">Call <span id="callAmount" class="action-hint"></span></button>
+    <div class="raise-wrap"><input id="raiseAmount" type="number" min="1" step="1" aria-label="Cantidad total de raise"><button id="raiseBtn" class="action-button raise">Raise</button></div>
+    <button id="allInBtn" class="action-button allin">All-in</button>
+  </div>
+  <div class="new-hand-row"><button id="newHandBtn" class="button button-primary hidden">Jugar nueva mano</button></div>
+</section>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script type="module" src="../js/game.js"></script>
+</body>
+</html>

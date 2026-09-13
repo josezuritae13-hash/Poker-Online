@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07090b"><title>Poker Online · Lobby</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="lobby-page">
+<main class="page-shell lobby-shell">
+<header class="topbar glass">
+  <div class="brand-inline"><div class="brand-logo">♠</div><div><div class="kicker">TEXAS HOLD'EM · SALA PRIVADA</div><h1>Sala de espera</h1><p>Invita a tus amigos y configura la partida antes de empezar.</p></div></div>
+  <button id="exitBtn" class="button button-ghost danger">Salir</button>
+</header>
+
+<section class="lobby-grid">
+  <div class="stack">
+    <section class="panel room-card reveal">
+      <div class="panel-head"><div><span class="kicker">CÓDIGO DE SALA</span><h2 id="roomCodeDisplay">-----</h2></div><button id="copyBtn" class="button button-soft">Copiar</button></div>
+      <p class="muted">Comparte este código con tus amigos. La sala es temporal y no crea una cuenta.</p>
+      <div class="room-banner"><span class="status-dot"></span><strong id="roomStatusText">Esperando jugadores</strong><span id="roomCountdown" class="muted"></span></div>
+    </section>
+
+    <section class="panel reveal delay-1">
+      <div class="panel-head"><div><span class="kicker">JUGADORES</span><h2>Quién está dentro</h2></div><span id="playerCount" class="counter">0/6</span></div>
+      <div id="playersList" class="player-list" aria-live="polite"></div>
+      <div id="statusMessage" class="notice">Esperando al segundo jugador…</div>
+    </section>
+  </div>
+
+  <div class="stack">
+    <section id="configPanel" class="panel reveal delay-2">
+      <div class="panel-head"><div><span class="kicker">CONFIGURACIÓN DEL HOST</span><h2>Fichas y reglas</h2></div><span id="hostLock" class="lock-badge">HOST</span></div>
+      <div id="hostOnlyMessage" class="host-only hidden">Solo el host puede modificar la configuración.</div>
+
+      <div class="config-grid">
+        <div class="config-field"><label for="maxPlayers">Máximo de jugadores</label><select id="maxPlayers"><option>2</option><option>3</option><option>4</option><option>5</option><option selected>6</option></select></div>
+        <div class="config-field"><label for="smallBlind">Small Blind</label><input id="smallBlind" type="number" min="1" step="1"></div>
+        <div class="config-field"><label for="bigBlind">Big Blind</label><input id="bigBlind" type="number" min="2" step="1"></div>
+      </div>
+
+      <div class="config-section-head"><div><strong>Banco de fichas</strong><span>Define valor, cantidad total y cantidad inicial por jugador.</span></div><strong id="stackValue" class="stack-value">0 fichas</strong></div>
+      <div class="chip-table">
+        <div class="chip-table-head"><span>Tipo</span><span>Valor</span><span>Banco</span><span>Por jugador</span></div>
+        <div class="chip-row"><span><i class="chip black"></i>Negras</span><input id="blackValue" type="number" min="1"><input id="blackBank" type="number" min="0"><input id="blackPerPlayer" type="number" min="0"></div>
+        <div class="chip-row"><span><i class="chip white"></i>Blancas</span><input id="whiteValue" type="number" min="1"><input id="whiteBank" type="number" min="0"><input id="whitePerPlayer" type="number" min="0"></div>
+        <div class="chip-row"><span><i class="chip red"></i>Rojas</span><input id="redValue" type="number" min="1"><input id="redBank" type="number" min="0"><input id="redPerPlayer" type="number" min="0"></div>
+        <div class="chip-row"><span><i class="chip blue"></i>Azules</span><input id="blueValue" type="number" min="1"><input id="blueBank" type="number" min="0"><input id="bluePerPlayer" type="number" min="0"></div>
+        <div class="chip-row"><span><i class="chip green"></i>Verdes</span><input id="greenValue" type="number" min="1"><input id="greenBank" type="number" min="0"><input id="greenPerPlayer" type="number" min="0"></div>
+      </div>
+      <div id="configError" class="form-error hidden"></div>
+      <button id="saveConfigBtn" class="button button-soft full">Guardar configuración</button>
+    </section>
+
+    <section class="panel reveal delay-3 start-card">
+      <div class="start-copy"><span class="kicker">LISTO PARA JUGAR</span><h2 id="startTitle">Esperando jugadores</h2><p id="startHelp" class="muted">Necesitas al menos 2 jugadores.</p></div>
+      <button id="startBtn" class="button button-primary full" disabled>Empezar partida</button>
+      <div class="tiny-note">Las fichas son temporales: no hay saldo, historial ni progreso entre partidas.</div>
+    </section>
+  </div>
+</section>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script type="module" src="../js/lobby.js"></script>
+</body>
+</html>
